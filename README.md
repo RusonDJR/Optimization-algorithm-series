@@ -12,21 +12,20 @@ Simulated Annealing（模拟退火），Genetic Algorithm（遗传算法）
    
    
 
-求解过程：
+	求解过程：
 
-1.设置参数
+		1.设置参数
 
-2.初始解（随机产生一个初始路径）
-
-3.Metropolis准则:设置路径函数为 fit(S)，则 S_1, S_2 的路径差 df = fit(S_2) - fit(S_1)
-   以概率P来选择是否接受新的路径：如果 df<0，则接受新的路径 S_2，否则以概率 exp(-df/T)接受新的路径
+		2.初始解（随机产生一个初始路径）
+	
+		3.Metropolis准则:设置路径函数为 fit(S)，则 S_1, S_2 的路径差 df = fit(S_2) - fit(S_1)以概率P来选择是否接受新的路径：如果 df<0，则接受新的路径 S_2，否则以概率 exp(-df/T)接受新的路径
    
-4.降温 ：利用降温速率 r 进行降温， T=r*T，直至 T<T_end停止迭代。
+		4.降温 ：利用降温速率 r 进行降温， T=r*T，直至 T<T_end停止迭代。
 
 
 
-算法应用：
+	算法应用：
 
-1.Travelling salesman problem（TSP，旅行推销员问题）
+	1.Travelling salesman problem（TSP，旅行推销员问题）
 
 
