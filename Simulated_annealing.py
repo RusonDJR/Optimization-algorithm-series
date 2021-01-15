@@ -1,3 +1,8 @@
+#!/usr/bin/env
+# coding:utf-8
+
+__author__ = 'DJR'
+
 '''模拟退火算法：
 一种贪心算法，但是它的搜索过程引入随机因素。模拟退火算法以一定的概率来接受一个比当前解要差的解，因此有可能会跳出这个局部的最优解，达到全局的最优解
 1.随机算法，不一定找到全局的最优解；
@@ -72,8 +77,6 @@ class SA_TSP():
         r2 = np.random.randint(self.num)
         while r2 == r1:
             r2 = np.random.randint(self.num)
-        # print(self.new_chrom[r1])
-        # exit()
         self.new_chrom[r1], self.new_chrom[r2] = self.new_chrom[r2], self.new_chrom[r1]
         self.new_fitness = self.comp_fit(self.new_chrom)
 
@@ -92,14 +95,14 @@ class SA_TSP():
 
 # 旅行商问题
 def TSP_main(data):
-    print('旅行商问题')
     Path_short = SA_TSP(data, T=5000, r=0.9, L=400)
     Path_short.rand_chrom()  # 初始化路径
     # 绘制初始化路径
     fig = plt.figure()  # 生成画布
     plt.ion()  # 打开交互模式
+    print('旅行商的初始路程: ')
     Path_short.out_path(Path_short.chrom)
-    print('旅行商的初始路程: ' + str(Path_short.fitness))
+    print('距离: ' + str(Path_short.fitness))
 
     # 存储退火过程中的最优路径变化
     Path_short.best_chrom = [Path_short.chrom]
@@ -145,53 +148,17 @@ def TSP_main(data):
     # 关闭交互模式
     plt.ioff()
     plt.show()
-
+    print('旅行商的最终路程: ')
     Path_short.out_path(Path_short.chrom)
-    print('旅行商的路程: ' + str(Path_short.fitness))
+    print('距离：' + str(Path_short.fitness))
     return Path_short
 
 
 if __name__ == '__main__':
-    print('模拟退火案例')
+    print('模拟退火案例--旅行商问题')
     # 随机生成30个城市坐标
     np.random.seed(10)
     data = np.random.rand(30, 2) * 10
-    # SA_TSP_object = SA_TSP(data=data, T=5000, L=400, r=0.9)
-    a = np.array([0] * 30)
-    # print(a)
-    # exit(type(a))
     TSP_main(data)
-    # print(data)
-
-
-
-'''
-# 动态图保存
-def update(num, x, y, z, ax):
-    x, y, z = x[:num], y[:num], z[:num]
-    ax.scatter3D(x, y, z, color='black', s=100)
-    return ax
-
-ani = animation.FuncAnimation(fig, update, frames=25, fargs=(x_list, y_list, z_list, ax3d), interval=50, blit=False)
-'''
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
