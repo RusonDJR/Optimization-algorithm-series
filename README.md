@@ -2,6 +2,9 @@
 Simulated Annealing（模拟退火），Genetic Algorithm（遗传算法）
 
 
+
+
+
 一、 Simulated Annealing（模拟退火算法）
 
 	模拟退火算法是一种贪心算法，但是它的搜索过程引入随机因素。模拟退火算法以一定的概率来接受一个比当前解要差的解，因此有可能会跳出这个局部的最优解，达到全局的最优解
